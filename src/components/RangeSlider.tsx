@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 
-export default function RangeSlider() {
-  const [bgSize, setBgSize] = useState(10);
+interface RangeSliderProps {
+  bgSize: number;
+  setBgSize: React.Dispatch<React.SetStateAction<number>>;
+}
 
+export default function RangeSlider({ bgSize, setBgSize }: RangeSliderProps) {
   return (
     <div>
       <div className="flex justify-between items-center mb-5 mt-3">
