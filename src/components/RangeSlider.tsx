@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export default function RangeSlider() {
-  const [bgSize, setBgSize] = useState(1);
+  const [bgSize, setBgSize] = useState(10);
 
   return (
     <div>
