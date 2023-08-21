@@ -5,7 +5,7 @@ const DisplayPassword = () => {
     <div className="bg-primary h-24 px-3 md:h-32  w-5/6 flex justify-between items-center mx-auto mb-8">
       <span
         id="display-password"
-        className="text-textColor text-2xl md:text-4xl opacity-80 font-bold"
+        className="text-textColor text-2xl md:text-4xl opacity-40 font-bold "
       >
         P4$5W0rD!
       </span>
