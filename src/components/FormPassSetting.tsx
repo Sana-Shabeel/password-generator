@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import RangeSlider from "./RangeSlider";
 import Checkbox from "./Checkbox";
+import StrengthIndicator from "./StrengthIndicator";
 
 const FormPassSetting = () => {
   const [uppercase, setuppercase] = useState(false);
@@ -32,6 +33,7 @@ const FormPassSetting = () => {
           checked={symbols}
           setChecked={setSymbols}
         />
+        <StrengthIndicator />
       </div>
     </div>
   );
