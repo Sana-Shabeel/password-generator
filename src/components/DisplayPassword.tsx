@@ -1,5 +1,3 @@
-import React from "react";
-
 const DisplayPassword = () => {
   return (
     <div className="bg-primary h-24 px-3 md:h-32  w-5/6 flex justify-between items-center mx-auto mb-8 max-w-lg">
