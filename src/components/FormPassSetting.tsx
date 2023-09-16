@@ -46,10 +46,10 @@ const symbols = [
 ];
 
 const FormPassSetting = () => {
-  const [uppercase, setuppercase] = useState(false);
-  const [lowercase, setLowercase] = useState(false);
-  const [numbers, setNumbers] = useState(false);
-  const [symbols, setSymbols] = useState(false);
+  const [uppercaseCheckbox, setuppercaseCheckbox] = useState(false);
+  const [lowercaseCheckbox, setLowercaseCheckbox] = useState(false);
+  const [numbersCheckbox, setNumbersCheckbox] = useState(false);
+  const [symbolsCheckbox, setSymbolsCheckbox] = useState(false);
   const [bgSize, setBgSize] = useState(10);
 
   const getRandomNumber = (min: number, max: number) => {
@@ -59,10 +59,25 @@ const FormPassSetting = () => {
   const generatePassword = () => {
     const password = [];
     for (let i = 0; i < bgSize; i++) {
-      password.push(
-        uppercaseLetters[getRandomNumber(0, uppercaseLetters.length)]
-      );
+      if (uppercaseCheckbox) {
+        password.push(
+          uppercaseLetters[getRandomNumber(0, uppercaseLetters.length)]
+        );
+      }
+      if (lowercaseCheckbox) {
+        password.push(
+          lowercaseLetters[getRandomNumber(0, lowercaseLetters.length)]
+        );
+      }
+      if (numbersCheckbox) {
+        password.push(numbers[getRandomNumber(0, numbers.length)]);
+      }
+      if (symbolsCheckbox) {
+        password.push(symbols[getRandomNumber(0, symbols.length)]);
+      }
     }
+    console.log(bgSize, password.slice(0, bgSize).join(""));
+
     return password.join("");
   };
 
@@ -72,26 +87,29 @@ const FormPassSetting = () => {
       <div className="flex flex-col gap-3 mt-3">
         <Checkbox
           label="Include Uppercase Letters"
-          checked={uppercase}
-          setChecked={setuppercase}
+          checked={uppercaseCheckbox}
+          setChecked={setuppercaseCheckbox}
         />
         <Checkbox
           label="Include Lowercase Letters"
-          checked={lowercase}
-          setChecked={setLowercase}
+          checked={lowercaseCheckbox}
+          setChecked={setLowercaseCheckbox}
         />
         <Checkbox
           label="Include Numbers"
-          checked={numbers}
-          setChecked={setNumbers}
+          checked={numbersCheckbox}
+          setChecked={setNumbersCheckbox}
         />
         <Checkbox
           label="Include Symbols"
-          checked={symbols}
-          setChecked={setSymbols}
+          checked={symbolsCheckbox}
+          setChecked={setSymbolsCheckbox}
         />
         <StrengthIndicator />
-        <button className="bg-creamyColor w-full h-14 mt-2 uppercase font-bold text-lg flex items-center justify-center gap-3 hover:bg-transparent hover:border-2 border-creamyColor group">
+        <button
+          className="bg-creamyColor w-full h-14 mt-2 uppercase font-bold text-lg flex items-center justify-center gap-3 hover:bg-transparent hover:border-2 border-creamyColor group"
+          onClick={() => generatePassword()}
+        >
           <span className="group-hover:text-creamyColor">GENERATE</span>
           <svg
             width="12"
