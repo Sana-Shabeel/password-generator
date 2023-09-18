@@ -1,4 +1,14 @@
-const StrengthIndicator = () => {
+interface StrengthIndicatorProps {
+  score: number;
+}
+
+const StrengthIndicator = ({ score }: StrengthIndicatorProps) => {
+  const basicBarStyles = "w-3 h-8 bg-transparent border-2";
+
+  const passwordColor = ["#F74A4B", "#FB7956", "#F8CC63", "#A3FFAE"];
+
+  console.log(`score: ${score}`);
+
   return (
     <div>
       <div className="flex justify-between items-center p-4 mt-3 bg-[#191820]">
@@ -6,9 +16,15 @@ const StrengthIndicator = () => {
           STRENGTH
         </p>
         <div className="flex gap-2">
-          <div className="w-3 h-8 bg-transparent border-2"></div>
-          <div className="w-3 h-8 bg-transparent border-2"></div>
-          <div className="w-3 h-8 bg-transparent border-2"></div>
+          {Array.from({ length: 4 }, (_, i) => (
+            <div
+              key={i}
+              className={`${basicBarStyles} `}
+              style={{
+                backgroundColor: i < score ? passwordColor[score] : "",
+              }}
+            ></div>
+          ))}
         </div>
       </div>
     </div>
