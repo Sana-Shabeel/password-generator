@@ -1,4 +1,3 @@
-import DisplayPassword from "./components/DisplayPassword";
 import FormPassSetting from "./components/FormPassSetting";
 
 function App() {
@@ -7,7 +6,6 @@ function App() {
       <h1 className="text-[#807c92] text-3xl md:text-4xl text-center mt-40 mb-6">
         Password Generator
       </h1>
-      <DisplayPassword />
       <FormPassSetting />
     </div>
   );
