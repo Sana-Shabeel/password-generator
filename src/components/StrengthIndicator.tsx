@@ -3,11 +3,29 @@ interface StrengthIndicatorProps {
 }
 
 const StrengthIndicator = ({ score }: StrengthIndicatorProps) => {
-  const basicBarStyles = "w-3 h-8 bg-transparent border-2";
+  const baseBarStyles = "w-3 h-8 bg-transparent border-2 border-currentColor";
 
-  const passwordColor = ["#F74A4B", "#FB7956", "#F8CC63", "#A3FFAE"];
+  const passwordStrength = ["TOO WEAK", "WEAK", "MEDIUM", "STRONG"];
 
   console.log(`score: ${score}`);
+
+  const getPasswordColor = () => {
+    switch (score) {
+      case 0:
+        return "bg-[#F74A4B] border-[#F74A4B]";
+      case 1:
+        return "bg-[#F74A4B] border-[#F74A4B]";
+      case 2:
+        return "bg-[#FB7956] border-[#FB7956]";
+      case 3:
+        return "bg-[#F8CC63] border-[#F8CC63]";
+      case 4:
+        return "bg-[#A3FFAE] border-[#A3FFAE]";
+      default:
+        return "";
+    }
+  };
+  console.log(score);
 
   return (
     <div>
@@ -16,15 +34,29 @@ const StrengthIndicator = ({ score }: StrengthIndicatorProps) => {
           STRENGTH
         </p>
         <div className="flex gap-2">
-          {Array.from({ length: 4 }, (_, i) => (
-            <div
-              key={i}
-              className={`${basicBarStyles} `}
-              style={{
-                backgroundColor: i < score ? passwordColor[score] : "",
-              }}
-            ></div>
-          ))}
+          <span className="text-xl mr-2 font-bold text-white">
+            {passwordStrength[score - 1]}
+          </span>
+          <div
+            className={`${baseBarStyles} ${
+              score >= 0 ? getPasswordColor() : ""
+            }`}
+          ></div>
+          <div
+            className={`${baseBarStyles} ${
+              score >= 1 ? getPasswordColor() : ""
+            }`}
+          ></div>
+          <div
+            className={`${baseBarStyles} ${
+              score >= 2 ? getPasswordColor() : ""
+            }`}
+          ></div>
+          <div
+            className={`${baseBarStyles} ${
+              score >= 3 ? getPasswordColor() : ""
+            }`}
+          ></div>
         </div>
       </div>
     </div>
