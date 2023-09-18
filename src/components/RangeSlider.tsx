@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 interface RangeSliderProps {
   bgSize: number;
@@ -8,7 +8,7 @@ interface RangeSliderProps {
 export default function RangeSlider({ bgSize, setBgSize }: RangeSliderProps) {
   return (
     <div>
-      <div className="flex justify-between items-center mb-5 mt-3">
+      <div className="flex justify-between items-center my-3">
         <p className="text-textColor">Character Length</p>
         <p className="text-creamyColor text-3xl md:text-4xl font-bold">
           {bgSize}
