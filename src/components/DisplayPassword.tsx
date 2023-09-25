@@ -3,7 +3,7 @@ interface DisplayPasswordProps {
 }
 
 const DisplayPassword = ({ generatedPassword }: DisplayPasswordProps) => {
-  // is this a signed commit ????
+  // this is a component that displays the generated password
   return (
     <div className="bg-primary h-20 px-3 md:h-32  w-5/6 flex justify-between items-center mx-auto mb-8 max-w-lg">
       <span
